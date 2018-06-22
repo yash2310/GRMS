@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="AMS.ApplicationCore" namespace="AMS.ApplicationCore.Entities">
+  <class name="ReviewCycle">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" not-null="true" />
+    <property name="StartMonth" not-null="true" />
+    <property name="EndMonth" not-null="true" />
+    <property name="Status" not-null="true" />
+
+    <bag name="OrganizationGoals" table="`OrganizationGoal`">
+      <key column="ReviewCycle"/>
+      <one-to-many class="OrganizationGoal"/>
+    </bag>
+
+    <bag name="DesignationGoals" table="`DesignationGoal`">
+      <key column="ReviewCycle"/>
+      <one-to-many class="DesignationGoal"/>
+    </bag>
+
+    <bag name="ManagerialEmployeeGoals" table="`ManagerialEmployeeGoal`">
+      <key column="ReviewCycle"/>
+      <one-to-many class="ManagerialEmployeeGoal"/>
+    </bag>
+
+    <bag name="EmployeeGoals" table="EmployeeGoal">
+      <key column="ReviewCycle"/>
+      <one-to-many class="EmployeeGoal"/>
+    </bag>
+    
+    <property name="CreatedOn" not-null="true" />
+    <property name="CreatedBy" not-null="true" />
+    <property name="UpdatedOn" />
+    <property name="UpdatedBy" />
+  </class>
+</hibernate-mapping>

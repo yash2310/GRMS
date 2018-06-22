@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="AMS.ApplicationCore" namespace="AMS.ApplicationCore.Entities">
+  <class name="GoalStatus">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Name" not-null="true" />
+    <property name="CreatedOn" not-null="true" />
+    <property name="CreatedBy" not-null="true" />
+    <property name="UpdatedOn" />
+    <property name="UpdatedBy" />
+  </class>
+</hibernate-mapping>

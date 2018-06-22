@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="AMS.ApplicationCore" namespace="AMS.ApplicationCore.Entities.Security">
+  <class name="Employee" lazy="true">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    
+    <property name="Name" not-null="true" />
+    <property name="Email" not-null="true" />
+    <property name="EmployeeNo" not-null="true" />
+    <property name="ContactNo" />
+    <property name="Password" not-null="true" />
+    <property name="JoiningDate" not-null="true" />
+    <property name="ImageUrl" />
+    <property name="NewUser" not-null="true" />
+
+    <many-to-one name="ReportingManager" column="ReportingManager"/>
+    <many-to-one name="Designation" column="Designation"/>
+    <many-to-one name="Department" column="Department"/>
+    <many-to-one name="Organization" column="Organization"/>
+    
+    <bag name="Roles" table="Employee_Roles" inverse="true" lazy="true">
+      <key column="employee"/>
+      <many-to-many class="Role" column="role"/>
+    </bag>
+
+    <bag name="ManagerialEmployeeGoals" table="ManagerialEmployeeGoal" lazy="true">
+      <key column="Employee"/>
+      <one-to-many class="AMS.ApplicationCore.Entities.ManagerialEmployeeGoal"/>
+    </bag>
+
+    <bag name="EmployeeGoals" table="EmployeeGoal" lazy="true">
+      <key column="Employee"/>
+      <one-to-many class="AMS.ApplicationCore.Entities.EmployeeGoal"/>
+    </bag>
+    
+    <bag name="OrganizationGoals" table="OrganizationGoal" lazy="true">
+      <key column="Organization"/>
+      <one-to-many class="AMS.ApplicationCore.Entities.OrganizationGoal"/>
+    </bag>
+
+    <bag name="DesignationGoals" table="DesignationGoal" lazy="true">
+      <key column="Designation"/>
+      <one-to-many class="AMS.ApplicationCore.Entities.DesignationGoal"/>
+    </bag>
+    
+    <property name="CreatedOn" not-null="true" />
+    <property name="CreatedBy" not-null="true" />
+    <property name="UpdatedOn" />
+    <property name="UpdatedBy" />
+  </class>
+</hibernate-mapping>

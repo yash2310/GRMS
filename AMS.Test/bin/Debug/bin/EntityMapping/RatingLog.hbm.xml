@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="AMS.ApplicationCore" namespace="AMS.ApplicationCore.Entities">
+  <class name="RatingLog">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+
+    <many-to-one name="Employee" column="Employee"/>
+    <many-to-one name="ReportingManager" column="ReportingManager"/>
+    <many-to-one name="Designation" column="Designation"/>
+    <many-to-one name="ReviewCycle" column="ReviewCycle"/>
+    
+    <property name="Rating" />
+    <property name="Feedback" />
+    
+    <property name="CreatedOn" />
+    <property name="CreatedBy" />
+    <property name="UpdatedOn" />
+    <property name="UpdatedBy" />
+  </class>
+</hibernate-mapping>

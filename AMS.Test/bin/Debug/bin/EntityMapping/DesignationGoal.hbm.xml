@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="AMS.ApplicationCore" namespace="AMS.ApplicationCore.Entities">
+  <class name="DesignationGoal">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Goal" not-null="true" />
+    <property name="Weightage" not-null="true" />
+    <property name="Description" not-null="true" />
+    <property name="StartDate" not-null="true" />
+    <property name="EndDate" not-null="true" />
+
+    <many-to-one name="Cycle" column="ReviewCycle"/>
+    <many-to-one name="Status" column="GoalStatus"/>
+    <many-to-one name="Designation" column="Designation"/>
+
+    <property name="CreatedOn" not-null="true" />
+    <property name="CreatedBy" not-null="true" />
+    <property name="UpdatedOn" />
+    <property name="UpdatedBy" />
+  </class>
+</hibernate-mapping>

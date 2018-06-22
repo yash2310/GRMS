@@ -1,0 +1,11 @@
+*AMS.WebApi/bin
+*AMS.Infrastructure/bin
+*AMS.Infrastructure/obj
+*AMS.WebApi/obj
+*AMS.ApplicationCore/obj
+*AMS.ApplicationCore/bin
+*AMS.WebApi/bin/Debug
+*AMS.WebApi/obj/Debug
+*AMS.WebAppIdentity/
+*WebApplication1
+*vs/appraisalManagementSystem/
